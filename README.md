@@ -44,6 +44,29 @@ npm run build      # compila a dist/
 npm run preview    # sirve la versión compilada
 ```
 
+## Publicar en GitHub Pages
+
+El workflow de GitHub Actions publica automáticamente la app cuando haces
+push a `main`. Antes de publicar:
+
+1. En GitHub, abre **Settings → Secrets and variables → Actions** y crea
+   estos seis secretos usando los valores de la configuración de tu app web
+   de Firebase:
+   `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_AUTH_DOMAIN`,
+   `VITE_FIREBASE_PROJECT_ID`, `VITE_FIREBASE_STORAGE_BUCKET`,
+   `VITE_FIREBASE_MESSAGING_SENDER_ID` y `VITE_FIREBASE_APP_ID`.
+2. En **Settings → Pages**, selecciona **GitHub Actions** como fuente.
+3. En **Actions**, ejecuta el workflow **Deploy to GitHub Pages** o haz
+   push a `main`. Al terminar, la URL de la app aparece en el deployment
+   `github-pages`.
+
+El workflow compila con esos secretos y falla si falta alguno. No subas el
+archivo `.env`: para desarrollo local puedes copiar `.env.example` a `.env`.
+Los valores de configuración Firebase que empiezan con `VITE_` se incluyen
+en el JavaScript publicado y son visibles en el navegador; protege los datos
+con las reglas de seguridad de Firestore y las restricciones adecuadas de la
+API key.
+
 ## Conectar Firebase real (paso a paso)
 
 1. Ve a [console.firebase.google.com](https://console.firebase.google.com)
@@ -62,8 +85,8 @@ npm run preview    # sirve la versión compilada
    - `clienteId`: solo para clientes — el ID del documento del cliente
      en la colección `clientes` (texto)
 6. En **Configuración del proyecto → Tus apps → Web** copia los datos de
-   configuración y crea un archivo `.env` en la raíz del proyecto (hay
-   un `.env.example` de guía):
+   configuración y crea un archivo `.env` en la raíz del proyecto (puedes
+   copiar `.env.example` como guía):
    ```env
    VITE_FIREBASE_API_KEY=...
    VITE_FIREBASE_AUTH_DOMAIN=...
