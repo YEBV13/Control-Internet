@@ -24,11 +24,6 @@ recordatorio por WhatsApp, reportes por estación y por mes, y guardado en
 La app arranca en **Modo demo (sin Firebase)**: los datos de ejemplo viven
 en el navegador (localStorage) y las cuentas demo funcionan sin internet.
 
-| Cuenta | Contraseña | Rol |
-|---|---|---|
-| `admin@controlinternet.local` | `Admin123!` | Administrador general (ve todo) |
-| `cobros@controlinternet.local` | `Cobros123!` | Administrador de cobros (ve todo; sus pagos quedan a su nombre) |
-| `cliente@controlinternet.local` | `Cliente123!` | Cliente — ligado a **María López** (Estación Centro, $300/mes). Solo ve “Mi pago”. |
 
 Datos de ejemplo: 3 estaciones (Centro, Norte y Sur, en Puebla), 12 clientes
 con teléfonos mexicanos de 10 dígitos e IPs 192.168.x.x, mensualidades de
